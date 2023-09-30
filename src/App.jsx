@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import { About, Contact, Hero, Navbar, Tech, Works, StarsCanvas} from "./components"
+import { About, Contact, Hero, Navbar, Tech, Works} from "./components"
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
@@ -17,7 +17,6 @@ function App() {
         <Works/>
         <div className='relative z-0'>
           <Contact/>
-          <StarsCanvas/>
         </div>
       </div>
     </BrowserRouter>

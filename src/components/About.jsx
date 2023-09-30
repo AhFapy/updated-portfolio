@@ -8,6 +8,7 @@ import { fadeIn, textVariant } from "../utils/motion"
 
 import { SectionWrapper } from '../hoc'
 
+
 const ServiceCard = ({index, title, icon}) => {
 return (
     <Tilt className="xs:w-[250px] w-full">
@@ -47,7 +48,7 @@ const About = () => {
       With extensive experience, I can meet your needs and bring your projects to success. I will turn your ideas into reality with user friendly outcomes. 
     </motion.p>
 
-    <div className='mt-20 flex flex-wrap gap-10'>
+    <div className='mt-20 flex flex-wrap gap-10 justify-center'>
       {services.map((service, index) => (
         <ServiceCard key={service.title} index={index} {...service}/>
       ))}

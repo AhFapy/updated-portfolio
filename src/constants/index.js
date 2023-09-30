@@ -47,7 +47,7 @@ import {
     },
     
     {
-      title: "UI Designing",
+      title: "UI Designer",
       icon: figma,
     },
   ];

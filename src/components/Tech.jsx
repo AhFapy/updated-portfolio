@@ -12,8 +12,8 @@ const Tech = () => {
         <div>
             <h1 className={`${styles.sectionHeadText} text-center`}>
                 Highly Skilled Technologies 🛠️<br/>
-                <div className="bg-red w-[100vw] flex justify-center">
-                <span className="text-[8vw] flex w-[75%] justify-evenly mt-[5vh]">
+                <div className="w-full flex justify-center">
+                <span className="text-[9vw] flex w-full justify-evenly mt-[5vh]">
                     <FontAwesomeIcon className="hover:text-white text-orange-600 ease-in-out duration-500" icon={faHtml5} />
                     <FontAwesomeIcon className="hover:text-white text-blue-600 ease-in-out duration-500" icon={faCss3Alt} />
                     <FontAwesomeIcon className="hover:text-white text-yellow-600 ease-in-out duration-500" icon={faJs} />
