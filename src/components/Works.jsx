@@ -6,6 +6,7 @@ import { github } from "../assets"
 import { SectionWrapper } from "../hoc"
 import { projects } from "../constants"
 import {fadeIn, textVariant} from "../utils/motion"
+import clickImg from "../assets/click-img.webp"
 
   
 const ProjectCard = ({index, name, description, tags, image, source_code_link, handleWindow}) => (
@@ -17,16 +18,11 @@ const ProjectCard = ({index, name, description, tags, image, source_code_link, h
     }}
     className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
     >
-      <div className="relative w-full h-[230px] hover:cursor-pointer" onClick={() => handleWindow(source_code_link)}>
-        <img src={image} alt={name} className="w-full h-full object-cover rounded-2xl">
-        </img>
+      <div className="relative w-full h-[100px] hover:cursor-pointer" onClick={() => handleWindow(source_code_link)}>
         <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-          <div className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer">
-            <img src={github} alt="github" className="w-1/2 h-1/2 object-contain">
-            </img>
+          <img className="w-[3rem] h-[3rem] rounded-full" src={clickImg}></img>
           </div>
         </div>
-      </div>
 
       <div className="mt-5">
         <h3 className="text-white font-bold text-[24px]">{name}</h3>

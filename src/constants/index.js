@@ -23,7 +23,7 @@ import {
     jobit,
     tripguide,
     threejs,
-  } from "../assets";
+    } from "../assets";
   
   export const navLinks = [
     {
@@ -110,9 +110,9 @@ import {
   
   const projects = [
     {
-      name: "Landing Page for José Gómez",
+      name: "Banking App",
       description:
-        "This Landing Page is designed to attract pottential clients for a professional Instagram Sales Launcher to offer his services.",
+        "This Landing Page for a Banking App is a Personal Project I developed to work on my skills",
       tags: [
         {
           name: "react",
@@ -127,8 +127,47 @@ import {
           color: "pink-text-gradient",
         },
       ],
-      image: "landing-page-img.PNG",
-      source_code_link: "https://landing-page-jose-gomez-demo.netlify.app/",
+      source_code_link: "https://ahfa-bank.netlify.app/",
+    },
+    {
+      name: "Roudani Watches",
+      description:
+        "Full website for an eCommerce shop with full Shopify and Code features like buying and seeing products",
+      tags: [
+        {
+          name: "react",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "responsive",
+          color: "green-text-gradient",
+        },
+        {
+          name: "eCommerce",
+          color: "red-text-gradient",
+        },
+      ],
+      source_code_link: "https://roudaniofficial.com/",
+    },
+    {
+      name: "Medito Donation Page",
+      description:
+        "This is the project I delivered for a Web Development Competition hosted by Medito, a meditation application",
+      tags: [
+        {
+          name: "react",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "responsive",
+          color: "green-text-gradient",
+        },
+        {
+          name: "eCommerce",
+          color: "red-text-gradient",
+        },
+      ],
+      source_code_link: "https://roudaniofficial.com/",
     },
   ];
   
