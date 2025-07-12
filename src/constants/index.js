@@ -28,7 +28,7 @@ import {
   export const navLinks = [
     {
       id: "about",
-      title: "About",
+      title: "El Método",
     },
     {
       id: "work",
@@ -42,13 +42,13 @@ import {
   
   const services = [
     {
-      title: "Web Developer",
-      icon: web,
+      title: "Peluquería",
+      icon: "💇‍♀️",
     },
     
     {
-      title: "UI Designer",
-      icon: figma,
+      title: "Asesorías",
+      icon: "💆‍♀️",
     },
   ];
   
