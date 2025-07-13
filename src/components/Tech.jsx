@@ -1,6 +1,6 @@
 import React from 'react'
 import { SectionWrapper } from '../hoc'
-import { styles } from '../style'
+import { Link } from 'react-router-dom'
 
 import imagen1 from "../assets/img-servicios-1.jpeg"
 import imagen2 from "../assets/img-servicios-2.jpeg"
@@ -10,26 +10,31 @@ import imagen5 from "../assets/img-servicios-5.jpeg"
 
 const services = [
   {
+    slug: "peluqueria",
     title: "PELUQUERÍA",
     description: "Nuestro servicio estrella: barros, balayage, micros... Diseñado para cuidar tu cabello de forma saludable, natural y elegante.",
     image: imagen1,
   },
   {
+    slug: "colorimetria",
     title: "Colorimetría + Visagismo",
     description: "Ideal si buscas descubrir tus colores favorecedores y potenciar tus rasgos con un estudio de rostro y tono que te ayude a tomar decisiones acertadas en imagen personal.",
     image: imagen2,
   },
   {
+    slug: "firstexperience",
     title: "First Experience",
     description: "Perfecto si quieres una transformación guiada desde el primer momento, con diagnóstico personalizado en cabello, estilismo, corte y tratamiento.",
     image: imagen3,
   },
   {
+    slug: "fullexperience",
     title: "Full Experience",
     description: "Ideal si buscas una experiencia premium de dos días para cuidarte por dentro y por fuera: colorimetría avanzada, visagismo, terapia, peluquería y asesoramiento integral.",
     image: imagen4,
   },
   {
+    slug: "integral",
     title: "Asesoría Integral",
     description: "Ideal si quieres transformar tu imagen de forma completa (4 días): definir estilo, paleta de colores, silueta y armario con acompañamiento personalizado.",
     image: imagen5,
@@ -49,33 +54,38 @@ const Services = () => {
 
         <div className="flex flex-col items-center space-y-20">
           {services.map((service, index) => (
-            <div
+            <Link
+              to={`/servicio/${service.slug}`}
               key={index}
-              className={`w-full max-w-[1100px] flex flex-col md:flex-row items-center gap-10 ${
-                index % 2 === 1 ? 'md:flex-row-reverse' : ''
-              }`}
+              className="w-full max-w-[1100px] block group"
             >
-              {/* Imagen adaptada a vertical */}
-<div className="w-full md:w-1/2 flex justify-center">
-  <div className="w-full max-w-[500px] max-h-[400px] rounded-xl overflow-hidden shadow-lg shadow-[#295D8D]/50">
-    <img
-      src={service.image}
-      alt={service.title}
-      className="w-full h-full object-cover"
-    />
-  </div>
-</div>
+              <div
+                className={`flex flex-col md:flex-row items-center gap-10 ${
+                  index % 2 === 1 ? 'md:flex-row-reverse' : ''
+                } transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer`}
+              >
+                {/* Imagen */}
+                <div className="w-full md:w-1/2 flex justify-center">
+                  <div className="w-full max-w-[500px] max-h-[400px] rounded-xl overflow-hidden shadow-lg shadow-[#295D8D]/50">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
 
-              {/* Texto */}
-              <div className="w-full md:w-1/2 bg-white rounded-xl p-6 shadow-lg text-left hover:shadow-2xl transition duration-300 ease-in-out">
-                <h3 className="text-[#0F172A] font-bold text-xl mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-[#475569] text-base">
-                  {service.description}
-                </p>
+                {/* Texto */}
+                <div className="w-full md:w-1/2 bg-white rounded-xl p-6 shadow-lg text-left hover:shadow-2xl transition duration-300 ease-in-out">
+                  <h3 className="text-[#0F172A] font-bold text-xl mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-[#475569] text-base">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
