@@ -10,7 +10,7 @@ function App() {
         <Route
           path="/"
           element={
-            <div className='relative z-0 bg-primary'>
+<div className='relative z-[1] bg-primary'>
               <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
                 <Hero />
               </div>

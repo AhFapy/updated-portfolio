@@ -59,7 +59,7 @@ const faqsAsesoria = [
 
 const ExtraSections = () => {
   return (
-    <div className="bg-[#D4E9FF] py-20 px-6">
+    <div className="bg-[#D4E9FF] py-20 px-6 z-[10]  ">
       {/* Testimonios */}
       <motion.div
         variants={textVariant()}
@@ -101,7 +101,7 @@ const ExtraSections = () => {
         className="text-center mb-6"
       >
         <p className="text-secondary text-[17px]">Para quienes buscan cuidarse el cabello</p>
-        <h2 className="text-[#0F172A] text-[26px] font-bold">Preguntas frecuentes sobre Peluquería</h2>
+        <h2 className="text-[#0F172A] text-[26px] font-bold">Lo que necesitas saber sobre Peluquería</h2>
       </motion.div>
 
       <div className="flex flex-wrap justify-center gap-7 mb-16">
@@ -133,7 +133,8 @@ const ExtraSections = () => {
         className="text-center mb-6"
       >
         <p className="text-secondary text-[17px]">Si vienes a asesorarte en imagen</p>
-        <h2 className="text-[#0F172A] text-[26px] font-bold">Preguntas frecuentes sobre Asesoría</h2>
+        <h2 className="text-[#0F172A] text-[26px] font-bold">
+           Lo que necesitas saber sobre Asesoría</h2>
       </motion.div>
 
       <div className="flex flex-wrap justify-center gap-7 mb-24">
