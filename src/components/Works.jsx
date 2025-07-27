@@ -64,7 +64,7 @@ const artists = [
     role: "Especialista en Color",
   },
   {
-    name: "Beatriz Gómez",
+    name: "Beatriz Rojo",
     role: "Asesora de Imagen",
   },
   {
