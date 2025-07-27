@@ -1,3 +1,4 @@
+import React, { useState } from "react"
 import { Tilt } from "react-tilt"
 import { motion } from "framer-motion"
 import { SectionWrapper } from "../hoc"
@@ -57,16 +58,78 @@ const faqsAsesoria = [
   },
 ]
 
+const artists = [
+  {
+    name: "Diana Troyano",
+    role: "Especialista en Color",
+  },
+  {
+    name: "Beatriz Gómez",
+    role: "Asesora de Imagen",
+  },
+  {
+    name: "Lucía Pérez",
+    role: "Estilista Capilar",
+  },
+  {
+    name: "Sandra Ruiz",
+    role: "Técnica en Barros",
+  },
+]
+
 const ExtraSections = () => {
+  const [selected, setSelected] = useState(null)
+
+  const closeModal = () => setSelected(null)
+
   return (
-    <div className="bg-[#D4E9FF] py-20 px-6 z-[10]  ">
+    <div className="bg-[#D4E9FF] py-20 px-6 z-[10]">
+      {/* ARTISTAS */}
+      <div className="mt-32 text-center">
+        <h2 className="text-5xl font-extrabold text-[#0F172A] mb-12">
+          Nuestro <span className="text-[#295D8D]">Equipo</span>
+        </h2>
+
+        <div className="flex gap-6 overflow-x-auto no-scrollbar justify-start sm:justify-center px-2">
+          {artists.map((artist, i) => (
+            <button
+              key={i}
+              onClick={() => setSelected(artist)}
+              className="flex-shrink-0 flex flex-col items-center"
+            >
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-white shadow-lg overflow-hidden bg-black" />
+              <p className="mt-2 text-sm font-semibold text-[#0F172A]">
+                {artist.name.split(" ")[0]}
+              </p>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* MODAL HISTORIA */}
+      {selected && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 z-[9999] flex items-center justify-center"
+          onClick={closeModal}
+        >
+          <div
+            className="w-[85%] max-w-md h-[500px] bg-black rounded-xl relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="w-full h-full rounded-xl bg-[#1f2937] flex items-center justify-center text-white text-2xl">
+              {selected.name}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Testimonios */}
       <motion.div
         variants={textVariant()}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="text-center mb-10"
+        className="text-center mb-10 mt-28"
       >
         <p className="text-secondary text-[17px]">Lo que dicen nuestras clientas</p>
         <h2 className="text-[#0F172A] text-[30px] font-bold">Testimonios reales.</h2>
@@ -101,7 +164,9 @@ const ExtraSections = () => {
         className="text-center mb-6"
       >
         <p className="text-secondary text-[17px]">Para quienes buscan cuidarse el cabello</p>
-        <h2 className="text-[#0F172A] text-[26px] font-bold">Lo que necesitas saber sobre Peluquería</h2>
+        <h2 className="text-[#0F172A] text-[26px] font-bold">
+          Lo que necesitas saber sobre Peluquería
+        </h2>
       </motion.div>
 
       <div className="flex flex-wrap justify-center gap-7 mb-16">
@@ -134,7 +199,8 @@ const ExtraSections = () => {
       >
         <p className="text-secondary text-[17px]">Si vienes a asesorarte en imagen</p>
         <h2 className="text-[#0F172A] text-[26px] font-bold">
-           Lo que necesitas saber sobre Asesoría</h2>
+          Lo que necesitas saber sobre Asesoría
+        </h2>
       </motion.div>
 
       <div className="flex flex-wrap justify-center gap-7 mb-24">
@@ -157,7 +223,7 @@ const ExtraSections = () => {
         ))}
       </div>
 
-      {/* Cierre emocional */}
+      {/* CTA emocional */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

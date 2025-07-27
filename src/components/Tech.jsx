@@ -16,7 +16,7 @@ const services = [
     slug: "peluqueria",
     title: "PELUQUERÍA",
     description: "Nuestro servicio estrella: barros, balayage, micros... Diseñado para cuidar tu cabello de forma saludable, natural y elegante.",
-    image: imagen1,
+    image: imagen3,
   },
   {
     slug: "colorimetria",
@@ -28,7 +28,7 @@ const services = [
     slug: "firstexperience",
     title: "First Experience",
     description: "Perfecto si quieres una transformación guiada desde el primer momento, con diagnóstico personalizado en cabello, estilismo, corte y tratamiento.",
-    image: imagen3,
+    image: imagen1,
   },
   {
     slug: "fullexperience",
@@ -44,24 +44,6 @@ const services = [
   }
 ]
 
-const artists = [
-  {
-    name: "Diana Troyano",
-    role: "Especialista en Color",
-  },
-  {
-    name: "Beatriz Gómez",
-    role: "Asesora de Imagen",
-  },
-  {
-    name: "Lucía Pérez",
-    role: "Estilista Capilar",
-  },
-  {
-    name: "Sandra Ruiz",
-    role: "Técnica en Barros",
-  },
-]
 
 const Services = () => {
   const scrollRef = useRef(null)
@@ -76,7 +58,6 @@ const Services = () => {
     }
   }
 
-  const closeModal = () => setSelected(null)
 
   return (
     <section className="w-full py-24 bg-[#D4E9FF]" id="services">
@@ -138,44 +119,7 @@ const Services = () => {
           </div>
         </div>
 
-        {/* ARTISTAS */}
-        <div className="mt-32 text-center">
-          <h2 className="text-5xl font-extrabold text-[#0F172A] mb-12">
-            Nuestro <span className="text-[#295D8D]">Equipo</span>
-          </h2>
 
-          <div className="flex gap-6 overflow-x-auto no-scrollbar justify-start sm:justify-center px-2">
-            {artists.map((artist, i) => (
-              <button
-                key={i}
-                onClick={() => setSelected(artist)}
-                className="flex-shrink-0 flex flex-col items-center"
-              >
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-white shadow-lg overflow-hidden bg-black" />
-                <p className="mt-2 text-sm font-semibold text-[#0F172A]">
-                  {artist.name.split(" ")[0]}
-                </p>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* MODAL AL ESTILO HISTORIA */}
-        {selected && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-80 z-[9999] flex items-center justify-center"
-            onClick={closeModal}
-          >
-            <div
-              className="w-[85%] max-w-md h-[500px] bg-black rounded-xl relative"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="w-full h-full rounded-xl bg-[#1f2937] flex items-center justify-center text-white text-2xl">
-                {selected.name}
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   )
