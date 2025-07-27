@@ -57,7 +57,7 @@ const Services = () => {
   }
 
   return (
-    <section className="w-full py-24 bg-[#D4E9FF]" id="services">
+    <section className="w-full mb-0 bg-[#D4E9FF]" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* TITULAR SLIDER */}

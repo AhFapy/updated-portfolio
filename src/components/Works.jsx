@@ -83,7 +83,7 @@ const ExtraSections = () => {
   const closeModal = () => setSelected(null)
 
   return (
-    <div className="bg-[#D4E9FF] py-20 px-6 z-[10] relative">
+    <div className="bg-[#D4E9FF] px-6 z-[10] relative">
       {/* BLOQUE DE ARTISTAS */}
       <div className="text-center mb-20">
         <h2 className="text-5xl font-extrabold text-[#0F172A] mb-12">
