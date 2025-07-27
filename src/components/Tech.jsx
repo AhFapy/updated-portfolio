@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { SectionWrapper } from '../hoc'
 import { Link } from 'react-router-dom'
 import { motion } from "framer-motion"
@@ -44,10 +44,8 @@ const services = [
   }
 ]
 
-
 const Services = () => {
   const scrollRef = useRef(null)
-  const [selected, setSelected] = useState(null)
 
   const scroll = (dir) => {
     if (scrollRef.current) {
@@ -58,22 +56,21 @@ const Services = () => {
     }
   }
 
-
   return (
     <section className="w-full py-24 bg-[#D4E9FF]" id="services">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* TITULAR SLIDER */}
-        <motion.div variants={textVariant()} className="text-center mb-16">
-          <h1 className="text-6xl font-extrabold text-[#0F172A]">
+        <motion.div variants={textVariant()} className="text-center mb-16 px-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#0F172A] leading-tight">
             Nuestras <span className="text-[#295D8D]">Experiencias</span>
           </h1>
-          <p className="text-[#334155] text-xl max-w-3xl mx-auto mt-6">
+          <p className="text-[#334155] text-lg sm:text-xl max-w-3xl mx-auto mt-6">
             Diseñadas para que redescubras tu esencia a través de la imagen.
           </p>
         </motion.div>
 
-        {/* FLECHAS */}
+        {/* FLECHAS DESKTOP */}
         <div className="relative">
           <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 justify-between w-full px-4 z-20">
             <button
@@ -91,28 +88,33 @@ const Services = () => {
           </div>
 
           {/* SLIDER */}
-          <div className="flex gap-6 overflow-x-auto sm:overflow-x-hidden px-4 sm:px-0">
-  {services.map((service, index) => (
-    <div
-      key={service.title}
-      className="flex-shrink-0 w-[85%] sm:w-[300px] bg-white rounded-xl shadow-md"
-    >
-      <img
-        src={service.image}
-        alt={service.title}
-        className="w-full h-56 object-cover rounded-t-xl"
-      />
-      <div className="p-4">
-        <h3 className="text-xl font-semibold text-[#0F172A]">{service.title}</h3>
-        <p className="text-sm text-[#475569]">{service.description}</p>
-      </div>
-    </div>
-  ))}
-</div>
-
-         </div>
-
-
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto scroll-smooth px-1 no-scrollbar sm:px-0"
+          >
+            {services.map((service) => (
+              <Link
+                key={service.slug}
+                to={`/servicio/${service.slug}`}
+                className="flex-shrink-0 w-[85%] sm:w-[320px] bg-white rounded-xl shadow-md hover:-translate-y-2 hover:shadow-2xl transition-transform duration-300"
+              >
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-56 object-cover rounded-t-xl"
+                />
+                <div className="p-4">
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#0F172A]">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-[#475569]">
+                    {service.description}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

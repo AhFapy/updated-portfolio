@@ -83,30 +83,30 @@ const ExtraSections = () => {
   const closeModal = () => setSelected(null)
 
   return (
-    <div className="bg-[#D4E9FF] py-20 px-6 z-[10]">
-      {/* ARTISTAS */}
-      <div className="mt-32 text-center">
+    <div className="bg-[#D4E9FF] py-20 px-6 z-[10] relative">
+      {/* BLOQUE DE ARTISTAS */}
+      <div className="text-center mb-20">
         <h2 className="text-5xl font-extrabold text-[#0F172A] mb-12">
           Nuestro <span className="text-[#295D8D]">Equipo</span>
         </h2>
 
-<div className="flex flex-wrap sm:flex-nowrap gap-6 justify-center px-2">
-  {artists.map((artist, i) => (
-    <button
-      key={i}
-      onClick={() => setSelected(artist)}
-      className="flex flex-col items-center w-1/2 sm:w-auto"
-    >
-      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-white shadow-lg overflow-hidden bg-black" />
-      <p className="mt-2 text-sm font-semibold text-[#0F172A]">
-        {artist.name.split(" ")[0]}
-      </p>
-    </button>
-  ))}
-</div>
+        <div className="flex flex-wrap sm:flex-nowrap sm:overflow-x-auto gap-6 justify-center px-2">
+          {artists.map((artist, i) => (
+            <button
+              key={i}
+              onClick={() => setSelected(artist)}
+              className="flex flex-col items-center w-1/2 sm:w-auto"
+            >
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-white shadow-lg overflow-hidden bg-black" />
+              <p className="mt-2 text-sm font-semibold text-[#0F172A]">
+                {artist.name.split(" ")[0]}
+              </p>
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* MODAL HISTORIA */}
+      {/* MODAL ARTISTA */}
       {selected && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 z-[9999] flex items-center justify-center"
@@ -123,13 +123,13 @@ const ExtraSections = () => {
         </div>
       )}
 
-      {/* Testimonios */}
+      {/* TESTIMONIOS */}
       <motion.div
         variants={textVariant()}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="text-center mb-10 mt-28"
+        className="text-center mb-10"
       >
         <p className="text-secondary text-[17px]">Lo que dicen nuestras clientas</p>
         <h2 className="text-[#0F172A] text-[30px] font-bold">Testimonios reales.</h2>
@@ -155,7 +155,7 @@ const ExtraSections = () => {
         ))}
       </div>
 
-      {/* FAQs Peluquería */}
+      {/* FAQs PELUQUERÍA */}
       <motion.div
         variants={textVariant()}
         initial="hidden"
@@ -164,9 +164,7 @@ const ExtraSections = () => {
         className="text-center mb-6"
       >
         <p className="text-secondary text-[17px]">Para quienes buscan cuidarse el cabello</p>
-        <h2 className="text-[#0F172A] text-[26px] font-bold">
-          Lo que necesitas saber sobre Peluquería
-        </h2>
+        <h2 className="text-[#0F172A] text-[26px] font-bold">Lo que necesitas saber sobre Peluquería</h2>
       </motion.div>
 
       <div className="flex flex-wrap justify-center gap-7 mb-16">
@@ -189,7 +187,7 @@ const ExtraSections = () => {
         ))}
       </div>
 
-      {/* FAQs Asesoría */}
+      {/* FAQs ASESORÍA */}
       <motion.div
         variants={textVariant()}
         initial="hidden"
@@ -223,7 +221,7 @@ const ExtraSections = () => {
         ))}
       </div>
 
-      {/* CTA emocional */}
+      {/* CTA FINAL */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
