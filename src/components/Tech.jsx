@@ -91,33 +91,26 @@ const Services = () => {
           </div>
 
           {/* SLIDER */}
-          <div
-            className="flex gap-8 overflow-x-auto scroll-smooth no-scrollbar px-2"
-            ref={scrollRef}
-          >
-            {services.map((service, index) => (
-              <Link
-                to={`/servicio/${service.slug}`}
-                key={index}
-                className="min-w-[400px] max-w-[420px] bg-white rounded-xl shadow-lg transition-all duration-300 flex-shrink-0 transform hover:-translate-y-2 hover:shadow-2xl"
-              >
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-80 object-cover rounded-t-xl"
-                />
-                <div className="p-6">
-                  <h3 className="text-[#0F172A] font-bold text-xl mb-3 uppercase">
-                    {service.title}
-                  </h3>
-                  <p className="text-[#475569] text-base leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+          <div className="flex gap-6 overflow-x-auto sm:overflow-x-hidden px-4 sm:px-0">
+  {services.map((service, index) => (
+    <div
+      key={service.title}
+      className="flex-shrink-0 w-[85%] sm:w-[300px] bg-white rounded-xl shadow-md"
+    >
+      <img
+        src={service.image}
+        alt={service.title}
+        className="w-full h-56 object-cover rounded-t-xl"
+      />
+      <div className="p-4">
+        <h3 className="text-xl font-semibold text-[#0F172A]">{service.title}</h3>
+        <p className="text-sm text-[#475569]">{service.description}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+         </div>
 
 
       </div>

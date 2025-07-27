@@ -90,20 +90,20 @@ const ExtraSections = () => {
           Nuestro <span className="text-[#295D8D]">Equipo</span>
         </h2>
 
-        <div className="flex gap-6 overflow-x-auto no-scrollbar justify-start sm:justify-center px-2">
-          {artists.map((artist, i) => (
-            <button
-              key={i}
-              onClick={() => setSelected(artist)}
-              className="flex-shrink-0 flex flex-col items-center"
-            >
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-white shadow-lg overflow-hidden bg-black" />
-              <p className="mt-2 text-sm font-semibold text-[#0F172A]">
-                {artist.name.split(" ")[0]}
-              </p>
-            </button>
-          ))}
-        </div>
+<div className="flex flex-wrap sm:flex-nowrap gap-6 justify-center px-2">
+  {artists.map((artist, i) => (
+    <button
+      key={i}
+      onClick={() => setSelected(artist)}
+      className="flex flex-col items-center w-1/2 sm:w-auto"
+    >
+      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-white shadow-lg overflow-hidden bg-black" />
+      <p className="mt-2 text-sm font-semibold text-[#0F172A]">
+        {artist.name.split(" ")[0]}
+      </p>
+    </button>
+  ))}
+</div>
       </div>
 
       {/* MODAL HISTORIA */}
