@@ -2,7 +2,10 @@ import React, { useState } from "react"
 import { Tilt } from "react-tilt"
 import { motion } from "framer-motion"
 import { SectionWrapper } from "../hoc"
-import { fadeIn, textVariant } from "../utils/motion"
+import { textVariant } from "../utils/motion"
+import diana from "../assets/diana.jpeg"
+import patricia from "../assets/patricia.jpeg"
+import lucia from "../assets/lucia.jpeg"
 
 const testimonios = [
   {
@@ -62,18 +65,21 @@ const artists = [
   {
     name: "Diana Troyano",
     role: "Especialista en Color",
+    image: diana,
   },
   {
     name: "Beatriz Rojo",
     role: "Asesora de Imagen",
   },
   {
-    name: "Lucía Pérez",
+    name: "Lucía",
     role: "Estilista Capilar",
+    image: lucia,
   },
   {
-    name: "Sandra Ruiz",
+    name: "Patricia",
     role: "Técnica en Barros",
+    image: patricia,
   },
 ]
 
@@ -90,38 +96,61 @@ const ExtraSections = () => {
           Nuestro <span className="text-[#295D8D]">Equipo</span>
         </h2>
 
-<div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-6 justify-center px-4 sm:px-6">
-  {artists.map((artist, i) => (
-    <button
-      key={i}
-      onClick={() => setSelected(artist)}
-      className="flex flex-col items-center w-full sm:w-28"
-    >
-      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-white shadow-lg overflow-hidden bg-black mx-auto" />
-      <p className="mt-2 text-sm font-semibold text-[#0F172A] text-center whitespace-nowrap">
-        {artist.name.split(" ")[0]}
-      </p>
-    </button>
-  ))}
-</div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {artists.map((artist, i) => (
+            <button
+              key={i}
+              onClick={() => setSelected(artist)}
+              className="flex flex-col items-center"
+            >
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-white shadow-lg overflow-hidden bg-black">
+                {artist.image && (
+<img
+  src={artist.image}
+  alt={artist.name}
+  className="w-full h-full object-cover object-center"
+/>
+                )}
+              </div>
+              <p className="mt-2 text-sm font-semibold text-[#0F172A] text-center whitespace-nowrap">
+                {artist.name.split(" ")[0]}
+              </p>
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* MODAL ARTISTA */}
-      {selected && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-80 z-[9999] flex items-center justify-center"
-          onClick={closeModal}
-        >
-          <div
-            className="w-[85%] max-w-md h-[500px] bg-black rounded-xl relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="w-full h-full rounded-xl bg-[#1f2937] flex items-center justify-center text-white text-2xl">
-              {selected.name}
-            </div>
+{selected && (
+  <div
+    className="fixed inset-0 bg-black bg-opacity-80 z-[9999] flex items-center justify-center"
+    onClick={closeModal}
+  >
+    <div
+      className="w-[90%] max-w-2xl h-[600px] bg-white rounded-xl relative overflow-hidden shadow-2xl"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {selected.image ? (
+        <div className="w-full h-full relative">
+          <img
+            src={selected.image}
+            alt={selected.name}
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute bottom-4 left-4 bg-black bg-opacity-60 text-white px-4 py-2 rounded-lg">
+            <p className="text-lg font-semibold">{selected.name}</p>
+            <p className="text-sm italic">{selected.role}</p>
           </div>
         </div>
+      ) : (
+        <div className="w-full h-full bg-[#1f2937] flex items-center justify-center text-white text-2xl">
+          {selected.name}
+        </div>
       )}
+    </div>
+  </div>
+)}
+
 
       {/* TESTIMONIOS */}
       <motion.div
